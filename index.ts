@@ -37,7 +37,7 @@ function sendNotiCommit(data: any) {
      let msg = `Repo: ${data.repository.name}\nBranch: ${data.ref.replace("refs/heads/", "")}\n\n`;
 
      for (let i = 0; i < listCommit.length; i++) {
-          msg += `* Commit ${listCommit[i].commit}:\n`;
+          msg += `* Commit: ${listCommit[i].commit}\n* By: ${listCommit[i].committer}\n\n`;
      }
      botTele.sendMessage(
           "-1002397033518",
