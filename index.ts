@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const TelegramBot = require("node-telegram-bot-api"); // Chuyển import thành require
 
-const token = "7383009278:AAE7bQT6bhojKh1pIGCfetgy7imRLbOV4OE";
+const token = "7786882947:AAG3JzwvLWyhIx6XXYvPrZKrzx4IWKviOYM";
 const botTele = new TelegramBot(token, { polling: true });
 
 const app = express();
