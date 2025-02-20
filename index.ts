@@ -19,6 +19,7 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 function sendNotiCommit(data: any) {
      console.log("Sending notification to Telegram...");
+     console.log(data);
      // let newData = {
      //      branch: data.ref.replace("refs/heads/", ""), // Tên branch,
      //      repo: "",
