@@ -18,13 +18,27 @@ app.post("/", (req: any, res: any) => {
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 function sendNotiCommit(data: any) {
-     console.log("Sending notification to Telegram...");
-     console.log(data);
-     // let newData = {
-     //      branch: data.ref.replace("refs/heads/", ""), // Tên branch,
-     //      repo: "",
-     //      commit: data.commits[0].message, // Nội dung commit,
-     // }
+     // console.log("Sending notification to Telegram...");
+     // console.log(data);
+     try {
+          let newData = {
+               action: data.action,
+               issue: data.issue.title,
+               assigneeTo: data.issue.assignee.login,
+               assigneeBy: data.issue.user.login,
+          }
+          botTele.sendMessage(
+               "-1002397033518",
+               'Acction: ' + newData.action + '\nIssue: ' + newData.issue + '\nAssignee to: ' + newData.assigneeTo + '\nAssignee by: ' + newData.assigneeBy
+          );
+     }
+     catch {
+          botTele.sendMessage(
+               "-1002397033518",
+               `has error on push + ${data.toString()}`
+          );
+     }
+     return;
      let listCommit: any[] = [];
 
      data.commits.forEach((e: { committer: { email: string; }; message: any; }) => {
