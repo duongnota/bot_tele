@@ -33,6 +33,8 @@ function sendNotiCommit(data: any) {
           );
      }
      catch {
+          console.log("data >>>>>");
+          console.log(data);
           botTele.sendMessage(
                "-1002397033518",
                `has error on push + ${JSON.stringify(data)}`
